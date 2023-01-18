@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { SearchForm, Label, Input } from './SearchForm.styled';
-import { setFilter } from 'redux/searchForm/filtersSlice';
+import { setFilter } from 'redux/searchForm/filterSlice';
 import { getFilter } from 'redux/searchForm/selectors';
 import { getContacts } from 'redux/contacts/selectors';
 
@@ -15,7 +15,7 @@ export const Filter = () => {
       <Label htmlFor="filter">Find contact by name:</Label>
       <Input
         autoFocus
-        disabled={contacts.length < 2 && !filter}
+        disabled={!filter && contacts.length < 3}
         name="filter"
         type="text"
         value={filter}
@@ -26,5 +26,5 @@ export const Filter = () => {
 };
 
 Filter.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
