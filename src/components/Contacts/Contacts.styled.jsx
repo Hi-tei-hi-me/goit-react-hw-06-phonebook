@@ -19,4 +19,4 @@ export const Item = styled.li`
   color: #fff;
 `;
 
-export const DeleteButton = styled.button``;
+export const DeleteBtn = styled.button``;
