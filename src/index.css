@@ -6,7 +6,7 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-y: scroll;
   background-color: #ece4da;
 }
 
@@ -34,8 +34,8 @@ ol {
 input {
   box-sizing: border-box;
   padding: 3px 8px;
+  line-height: 1.7;
   border: 1px solid lightgray;
-  border-radius: 5px;
 }
 
 button {
@@ -43,13 +43,15 @@ button {
   padding: 5px 15px;
   border: 1px solid lightgray;
   border-radius: 5px;
+  color: black;
   background-color: lightgray;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 button:hover,
 button:focus {
+  color: white;
   border: 1px solid transparent;
   background-color: gray;
-  color: white;
 }
 
 img {
@@ -59,7 +61,7 @@ img {
 }
 
 h1 {
-  margin: 20px auto;
+  margin: 10px auto 20px auto;
   text-align: center;
   color: #1a3a3a;
 }
