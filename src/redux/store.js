@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { contactsReducer } from './contacts/contactsSlice';
-import { filtersReducer } from './searchForm/filtersSlice';
+import { filtersReducer } from './searchForm/filterSlice';
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
-    filters: filtersReducer,
+    filter: filtersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -1,6 +1,6 @@
 export const getFilteredList = state => {
-  const normalizedFilter = state.filters.trim().toLowerCase();
-  return state.contacts.items.filter(({ name }) =>
+  const normalizedFilter = state.filter.trim().toLowerCase();
+  return state.contacts.contacts.filter(({ name }) =>
     name.trim().toLowerCase().includes(normalizedFilter)
   );
 };
