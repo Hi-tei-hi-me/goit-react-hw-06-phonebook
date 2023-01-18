@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { FormContainer, Label, Input, AddButton } from './ContactForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
+import { MdPersonAddDisabled, MdPersonAdd } from 'react-icons/md';
+import { FormContainer, Label, Input, AddBtn } from './ContactForm.styled';
+import { addContact } from 'redux/contacts/contactsSlice';
+import { getContacts } from 'redux/contacts/selectors';
 
-export const ContactForm = ({ onFormSubmit }) => {
+export const ContactForm = () => {
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const resetForm = () => {
@@ -11,8 +17,22 @@ export const ContactForm = ({ onFormSubmit }) => {
   };
   const handleSubmit = evt => {
     evt.preventDefault();
-    onFormSubmit({ name, number });
-    resetForm();
+    const newContact = { name, number };
+    if (
+      contacts.some(contact => {
+        return contact.name.trim().toLowerCase() === newContact.name.trim().toLowerCase();
+      })
+    ) {
+      return toast(`${newContact.name} is already in your Book`, {
+        icon: <MdPersonAddDisabled size={25} color="#ccba21" />,
+      });
+    } else {
+      dispatch(addContact(newContact));
+      toast(`${newContact.name} was successfully added to your Book`, {
+        icon: <MdPersonAdd size={28} color="#327047" />,
+      });
+      resetForm();
+    }
   };
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -56,16 +76,7 @@ export const ContactForm = ({ onFormSubmit }) => {
           </tr>
         </tbody>
       </table>
-      <AddButton type="submit">Add contact</AddButton>
+      <AddBtn type="submit">Add contact</AddBtn>
     </FormContainer>
   );
-};
-
-ContactForm.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      number: PropTypes.string,
-    })
-  ),
 };

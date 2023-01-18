@@ -18,6 +18,6 @@ export const Input = styled.input`
   width: 100%;
 `;
 
-export const AddButton = styled.button`
+export const AddBtn = styled.button`
   margin: 0 auto;
 `;
