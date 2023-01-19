@@ -8,6 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
   background-color: #ece4da;
+  background-image: url(assets/BG.png);
+  background-size: 500px;
+  background-position: center 150px;
+  background-origin: border-box;
+  background-repeat: no-repeat;
 }
 
 code {

@@ -7,7 +7,7 @@ export const FormContainer = styled.form`
   border: 1.5px solid gray;
   border-radius: 10px;
   padding: 15px;
-  background-color: #976363;
+  background-color: rgba(151, 99, 99, 0.8);
 `;
 
 export const Label = styled.label`

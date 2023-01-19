@@ -18,7 +18,7 @@ export const Contact = ({ id, name, number }) => {
       <p>
         {name}: <span>{number}</span>
       </p>
-      <DeleteBtn type="button" onClick={() => handleDelete}>
+      <DeleteBtn type="button" onClick={handleDelete}>
         Delete contact
       </DeleteBtn>
     </Item>
